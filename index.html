@@ -282,22 +282,21 @@
   /* ─── ORBIT RING(S) ─── */
   .orbit-ring {
     position: absolute;
-    border: 1px solid rgba(0, 240, 255, 0.06);
     border-radius: 50%;
-    animation: spin 40s linear infinite;
     pointer-events: none;
   }
   .orbit-ring:nth-child(1) {
     width: 600px; height: 600px;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    border: 1px solid rgba(0, 240, 255, 0.06);
+    animation: spin 40s linear infinite;
   }
   .orbit-ring:nth-child(2) {
     width: 800px; height: 800px;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    animation-duration: 55s;
-    border-color: rgba(124, 58, 237, 0.04);
+    border: 1px solid rgba(124, 58, 237, 0.04);
+    animation: spinTilted 55s linear infinite;
   }
 
   /* ─── SPIN KEYFRAME ─── */
@@ -305,12 +304,15 @@
     from { transform: translate(-50%, -50%) rotate(0deg); }
     to { transform: translate(-50%, -50%) rotate(360deg); }
   }
-  .orbit-ring:nth-child(1) { animation-name: spin; }
   @keyframes spinTilted {
     from { transform: translate(-50%, -50%) rotate(45deg); }
     to { transform: translate(-50%, -50%) rotate(405deg); }
   }
-  .orbit-ring:nth-child(2) { animation-name: spinTilted; }
+  .orbit-ring:nth-child(1) { animation: spin 40s linear infinite; }
+  .orbit-ring:nth-child(2) {
+    animation: spinTilted 55s linear infinite;
+    border-color: rgba(124, 58, 237, 0.04);
+  }
 
   /* ─── ORBITING PARTICLES ─── */
   .orbital-particle {
